@@ -55,7 +55,7 @@ from opendr.renderer import ColoredRenderer
 from serialization import load_model
 
 ## Load SMPL model (here we load the female model)
-m = load_model('models/basicModel_f_lbs_10_207_0_v1.0.0.pkl')
+m = load_model('./models/basicModel_neutral_lbs_10_207_0_v1.0.0.pkl')
 
 ## Assign random pose and shape parameters
 m.pose[:] = np.random.rand(m.pose.size) * .2
@@ -83,16 +83,17 @@ rn.vc = LambertianPointLight(
     light_color=np.array([1., 1., 1.]))
 
 ## Show it using OpenCV
-import cv2
+# import cv2
 
-cv2.imshow('render_SMPL', rn.r)
-print('..Print any key while on the display window')
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+# cv2.imshow('render_SMPL', rn.r)
+# print('..Print any key while on the display window')
+# cv2.waitKey(0)
+# cv2.destroyAllWindows()
 
 ## Could also use matplotlib to display
-# import matplotlib.pyplot as plt
-# plt.ion()
-# plt.imshow(rn.r)
-# plt.show()
+import matplotlib.pyplot as plt
+plt.ion()
+plt.imshow(rn.r)
+plt.show()
+input("Press a key to continue")
 # import pdb; pdb.set_trace()
